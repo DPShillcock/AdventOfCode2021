@@ -25,5 +25,7 @@ for (let i = 0; i < wind.length; i++) {
     const windSum = wind[i].reduce((sum, curr) => sum + curr);
     sumWindow.push(windSum);
 }
-const windowResult = sumWindow.map((v, i) => v > sumWindow[i - 1]).filter(Boolean).length;
+const mapped = wind.map(nested => nested.reduce((sum, curr) => sum + curr)).map((v, i, arr) => v > arr[i - 1]).filter(Boolean).length + 1;
+const windowResult = sumWindow.map((v, i) => v > sumWindow[i - 1]).filter(Boolean).length + 1;
+console.log(`Number of windows larger than the previous windows: ${windowResult}`);
 //# sourceMappingURL=SonarSweep.js.map
